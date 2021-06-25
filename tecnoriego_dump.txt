@@ -1,0 +1,130 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 25-06-2021 a las 23:47:01
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 8.0.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `tecnoriego`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `contacto`
+--
+
+CREATE TABLE `contacto` (
+  `nombre` varchar(25) DEFAULT NULL,
+  `apellido` varchar(25) DEFAULT NULL,
+  `mail` varchar(30) NOT NULL,
+  `consulta` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `contacto`
+--
+
+INSERT INTO `contacto` (`nombre`, `apellido`, `mail`, `consulta`) VALUES
+('Tomas', 'Fiori', 'asdag@gmail.com', 'qwriuri oweiur ajhOF jasdf'),
+('fdsdgafds', 'dghsgadfs', 'fdfgsdg', 'fgdfhdfd'),
+('sdag', 'safadf', 'gssdfv', 'sgdfgag'),
+('Jorge', 'Drexler', 'jorge@gmail.com', 'Consulta muchas cosas....'),
+('Juan', 'Nieve', 'juan@gmail.com', 'aag sdfg sdfgsg aw asdf awe asdf adf ');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proyectos`
+--
+
+CREATE TABLE `proyectos` (
+  `nombre` varchar(30) NOT NULL,
+  `ubicacion` varchar(30) DEFAULT NULL,
+  `tipo_de_proyecto` varchar(30) DEFAULT NULL,
+  `precio` double DEFAULT NULL,
+  `descripcion` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `proyectos`
+--
+
+INSERT INTO `proyectos` (`nombre`, `ubicacion`, `tipo_de_proyecto`, `precio`, `descripcion`) VALUES
+('Bodega Buenos Vinos', 'Los Sauces', 'Riego por goteo', 25000, 'kjldsf'),
+('Bodega Villa Seca', 'Villa Seca', 'Riego por goteo', 100000, 'asdfghj fghjk tyui vbnm dfghjklñ'),
+('Finca Los Condores', 'Vista Flores', 'Riego por goteo', 100000, 'lkjhg vfbxvc aert v sgyjdfh asfadsf '),
+('Finca Los Corrales', 'Eugenio Bustos', 'Pivote', 22500, 'pioyuiturhgfghngbvcfgdgf asfac z'),
+('Finca Los Redonditos de Ricota', 'Godoy Cruz', 'pivote', 25900, 'Gasdfjakj ajksdhgfkjasgf'),
+('Finca Nunca Jamas', 'Colonia Las Rosas', 'Pivote', 150000, 'ñlkjh gfds mnbv u654e'),
+('Finca Tunuyork', 'Tunuyan', 'Pivote', 30000, 'kadhflakjdfs');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_admin` int(11) NOT NULL,
+  `nombre` varchar(25) NOT NULL,
+  `mail` varchar(25) NOT NULL,
+  `contraseña` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_admin`, `nombre`, `mail`, `contraseña`) VALUES
+(1, 'admin', 'admin@gmail.com', '1234');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  ADD PRIMARY KEY (`mail`);
+
+--
+-- Indices de la tabla `proyectos`
+--
+ALTER TABLE `proyectos`
+  ADD PRIMARY KEY (`nombre`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_admin`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
